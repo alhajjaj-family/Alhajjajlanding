@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عائلة الحجاج</title>
+  <style>
+    :root{
+      --bg: #f6f7f6;
+      --card: #eef5f0;
+      --text: #1f1f1f;
+      --muted: #6f6f6f;
+      --line: #d9e4dc;
+      --green: #4bd67b;
+      --disabled: #e3e3e3;
+      --disabled-text: #8a8a8a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 40px 20px 28px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .sub {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .tree-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px 20px;
+      margin-bottom: 18px;
+    }
+
+    .tree-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 14px;
+      border-radius: 20px;
+      background: rgba(75, 214, 123, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      color: var(--green);
+    }
+
+    .tree-title {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .tree-desc {
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    .btn {
+      width: 100%;
+      border: 0;
+      border-radius: 18px;
+      padding: 18px 16px;
+      background: var(--disabled);
+      color: var(--disabled-text);
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 12px;
+      cursor: not-allowed;
+    }
+
+    .soon {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>عائلة الحجاج</h1>
+    <p class="sub">الشجرة متاحة بصيغة PDF</p>
+
+    <a class="tree-card" href="https://drive.google.com/file/d/1Fq8AudwxOXrLJuhbxdB3SrNNELw0yjk8/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+      <div class="tree-icon">🌳</div>
+      <div class="tree-title">شجرة العائلة</div>
+      <div class="tree-desc">اضغط لفتح ملف الشجرة PDF</div>
+    </a>
+
+    <button class="btn" disabled>
+      App Store
+      <span class="soon">قريبًا</span>
+    </button>
+
+    <button class="btn" disabled>
+      Google Play
+      <span class="soon">قريبًا</span>
+    </button>
+  </div>
+</body>
+</html>
