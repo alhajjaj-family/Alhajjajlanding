@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حذف الحساب - Delete Account - عائلة الحجاج</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      color: #2c3e50;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .language-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .language-tabs button {
+      padding: 10px 20px;
+      border: 2px solid #34495e;
+      background: white;
+      color: #34495e;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .language-tabs button.active {
+      background: #34495e;
+      color: white;
+    }
+    .language-tabs button:hover {
+      background: #f0f0f0;
+    }
+    .language-tabs button.active:hover {
+      background: #34495e;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .language-section {
+      display: none;
+    }
+    .language-section.active {
+      display: block;
+    }
+    .arabic-section {
+      direction: rtl;
+      text-align: right;
+    }
+    .english-section {
+      direction: ltr;
+      text-align: left;
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+    h2 {
+      color: #34495e;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    p {
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+    .warning {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      padding: 15px;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+    .form-container {
+      margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .form-group {
+      width: 100%;
+      max-width: 400px;
+    }
+    .arabic-section .form-group {
+      margin-left: auto;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    button[type="submit"] {
+      padding: 10px 20px;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+      align-self: flex-end;
+    }
+    .arabic-section button[type="submit"] {
+      align-self: flex-start;
+    }
+    button[type="submit"]:hover {
+      background: #c0392b;
+    }
+    .message {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      display: none;
+      font-size: 14px;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      color: #7f8c8d;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>حذف الحساب | Delete Account</h1>
+    <div class="language-tabs">
+      <button class="active" onclick="showLanguage('arabic')">العربية</button>
+      <button onclick="showLanguage('english')">English</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Arabic Section -->
+    <div id="arabic" class="language-section active arabic-section">
+      <h1>حذف الحساب</h1>
+      
+      <h2>طلب حذف الحساب</h2>
+      <p>إذا كنت تريد حذف حسابك والبيانات المرتبطة به، يرجى تعبئة النموذج أدناه.</p>
+      
+      <div class="warning">
+        <strong>تنبيه:</strong> حذف حسابك سيؤدي إلى حذف جميع بيانات ملفك الشخصي والمساهمات. هذه العملية لا يمكن استرجاعها.
+      </div>
+      
+      <h2>تقديم طلب الحذف</h2>
+      <form class="form-container" id="deleteFormArabic">
+        <div class="form-group">
+          <label for="name-ar">الاسم</label>
+          <input type="text" id="name-ar" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email-ar">البريد الإلكتروني</label>
+          <input type="email" id="email-ar" name="email" required>
+        </div>
+        
+        <button type="submit">تقديم الطلب</button>
+        
+        <div id="message-ar" class="message"></div>
+      </form>
+      
+      <h2>الدعم</h2>
+      <p>إذا واجهت مشاكل في حذف حسابك، يرجى التواصل معنا من خلال صفحة الدعم.</p>
+      
+      <div class="footer">
+        <p>آخر تحديث: مارس 2026</p>
+      </div>
+    </div>
+
+    <!-- English Section -->
+    <div id="english" class="language-section english-section">
+      <h1>Delete Account</h1>
+      
+      <h2>Account Deletion Request</h2>
+      <p>If you want to delete your account and associated data, please fill out the form below.</p>
+      
+      <div class="warning">
+        <strong>Warning:</strong> Deleting your account will remove all your profile data and contributions. This action cannot be undone.
+      </div>
+      
+      <h2>Submit Deletion Request</h2>
+      <form class="form-container" id="deleteFormEnglish">
+        <div class="form-group">
+          <label for="name-en">Name</label>
+          <input type="text" id="name-en" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email-en">Email Address</label>
+          <input type="email" id="email-en" name="email" required>
+        </div>
+        
+        <button type="submit">Submit Request</button>
+        
+        <div id="message-en" class="message"></div>
+      </form>
+      
+      <h2>Support</h2>
+      <p>If you experience issues deleting your account, please contact us through the support page.</p>
+      
+      <div class="footer">
+        <p>Last updated: March 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showLanguage(lang) {
+      // Hide all sections
+      document.getElementById('arabic').classList.remove('active');
+      document.getElementById('english').classList.remove('active');
+      
+      // Remove active class from buttons
+      document.querySelectorAll('.language-tabs button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Show selected section
+      document.getElementById(lang).classList.add('active');
+      
+      // Add active class to clicked button
+      event.target.classList.add('active');
+    }
+
+    // Arabic form
+    document.getElementById('deleteFormArabic').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await submitDeleteRequest('name-ar', 'email-ar', 'message-ar');
+    });
+
+    // English form
+    document.getElementById('deleteFormEnglish').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await submitDeleteRequest('name-en', 'email-en', 'message-en');
+    });
+
+    async function submitDeleteRequest(nameId, emailId, messageId) {
+      const name = document.getElementById(nameId).value;
+      const email = document.getElementById(emailId).value;
+      const messageEl = document.getElementById(messageId);
+      
+      try {
+        const response = await fetch('/delete-account', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email })
+        });
+        
+        const data = await response.json();
+        messageEl.style.display = 'block';
+        
+        if (response.ok) {
+          messageEl.style.background = '#d4edda';
+          messageEl.style.border = '1px solid #c3e6cb';
+          messageEl.style.color = '#155724';
+          messageEl.textContent = data.message || 'Account deletion request submitted successfully';
+          document.getElementById(nameId).parentElement.parentElement.reset();
+        } else {
+          messageEl.style.background = '#f8d7da';
+          messageEl.style.border = '1px solid #f5c6cb';
+          messageEl.style.color = '#721c24';
+          messageEl.textContent = data.message || 'An error occurred while submitting the request';
+        }
+      } catch (err) {
+        messageEl.style.display = 'block';
+        messageEl.style.background = '#f8d7da';
+        messageEl.style.border = '1px solid #f5c6cb';
+        messageEl.style.color = '#721c24';
+        messageEl.textContent = 'Connection error. Please try again later.';
+      }
+    }
+  </script>
+</body>
+</html>
