@@ -3,8 +3,8 @@
     { "src": "/", "dest": "/index.html" },
     { "src": "/privacy-policy", "dest": "/privacy-policy.html" },
     { "src": "/child-safety", "dest": "/child-safety.html" },
-    { "src": "/delete-account", "dest": "/delete-account.html" }
+    { "src": "/delete-account", "dest": "/delete-account.html" },
     { "src": "/terms-of-service", "dest": "/terms-of-service.html" },
-    { "src": "/support", "dest": "/support.html" },
+    { "src": "/support", "dest": "/support.html" }
   ]
 }
