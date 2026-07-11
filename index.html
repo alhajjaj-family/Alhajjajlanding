@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>عائلة الحجاج</title>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #f6f7f6;
-      --card: #eef5f0;
-      --text: #1f1f1f;
-      --muted: #6f6f6f;
-      --line: #d9e4dc;
-      --green: #4bd67b;
+      --olive: #4A6741;
+      --gold: #C9A45A;
+      --cream: #FAF7F2;
+      --dark: #2C1810;
+      --muted: #7A6E64;
+      --card: #fff;
+      --line: rgba(74, 103, 65, 0.15);
       --disabled: #e3e3e3;
       --disabled-text: #8a8a8a;
     }
@@ -20,9 +22,9 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background: var(--cream);
+      color: var(--dark);
     }
 
     .wrap {
@@ -34,9 +36,11 @@
 
     h1 {
       margin: 0 0 10px;
+      font-family: 'El Messiri', serif;
       font-size: 34px;
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1.2;
+      color: var(--olive);
     }
 
     .sub {
@@ -61,18 +65,20 @@
       height: 72px;
       margin: 0 auto 14px;
       border-radius: 20px;
-      background: rgba(75, 214, 123, 0.12);
+      background: rgba(74, 103, 65, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 34px;
-      color: var(--green);
+      color: var(--olive);
     }
 
     .tree-title {
+      font-family: 'El Messiri', serif;
       font-size: 26px;
-      font-weight: 800;
+      font-weight: 700;
       margin-bottom: 6px;
+      color: var(--olive);
     }
 
     .tree-desc {
@@ -122,5 +128,20 @@
       <span class="soon">قريبًا</span>
     </button>
   </div>
+
+  <script>
+    const APP_STORE_URL = ''; // TODO: fill in once app is live on App Store
+    const GOOGLE_PLAY_URL = ''; // TODO: fill in once app is live on Google Play
+
+    function detectAndRedirect() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+      const isAndroid = /android/i.test(ua);
+      if (isIOS && APP_STORE_URL) { window.location.href = APP_STORE_URL; return true; }
+      if (isAndroid && GOOGLE_PLAY_URL) { window.location.href = GOOGLE_PLAY_URL; return true; }
+      return false;
+    }
+    window.addEventListener('DOMContentLoaded', detectAndRedirect);
+  </script>
 </body>
 </html>

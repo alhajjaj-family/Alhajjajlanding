@@ -4,17 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>سياسة الخصوصية - Privacy Policy - عائلة الحجاج</title>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --olive: #4A6741;
+      --gold: #C9A45A;
+      --cream: #FAF7F2;
+      --dark: #2C1810;
+      --muted: #7A6E64;
+    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
-      color: #333;
-      background: #f5f5f5;
+      color: var(--dark);
+      background: var(--cream);
       padding: 20px;
     }
     .header {
@@ -22,7 +30,8 @@
       margin-bottom: 30px;
     }
     .header h1 {
-      color: #2c3e50;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       font-size: 28px;
       margin-bottom: 10px;
     }
@@ -34,30 +43,31 @@
     }
     .language-tabs button {
       padding: 10px 20px;
-      border: 2px solid #34495e;
+      border: 2px solid var(--olive);
       background: white;
-      color: #34495e;
+      color: var(--olive);
       border-radius: 4px;
       cursor: pointer;
       font-weight: bold;
       transition: all 0.3s ease;
     }
     .language-tabs button.active {
-      background: #34495e;
+      background: var(--olive);
       color: white;
     }
     .language-tabs button:hover {
       background: #f0f0f0;
     }
     .language-tabs button.active:hover {
-      background: #34495e;
+      background: var(--olive);
     }
     .container {
       max-width: 900px;
       margin: 0 auto;
-      background: white;
+      background: #fff;
       padding: 40px;
       border-radius: 8px;
+      border: 1px solid rgba(74,103,65,0.15);
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .language-section {
@@ -75,12 +85,14 @@
       text-align: left;
     }
     h1 {
-      color: #2c3e50;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       margin-bottom: 30px;
       font-size: 24px;
     }
     h2 {
-      color: #34495e;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       margin-top: 30px;
       margin-bottom: 15px;
       font-size: 18px;
@@ -101,7 +113,7 @@
       padding-top: 20px;
       border-top: 1px solid #eee;
       text-align: center;
-      color: #7f8c8d;
+      color: var(--muted);
       font-size: 12px;
     }
   </style>
@@ -110,8 +122,8 @@
   <div class="header">
     <h1>سياسة الخصوصية | Privacy Policy</h1>
     <div class="language-tabs">
-      <button class="active" onclick="showLanguage('arabic')">العربية</button>
-      <button onclick="showLanguage('english')">English</button>
+      <button class="active" onclick="showLanguage('arabic', event)">العربية</button>
+      <button onclick="showLanguage('english', event)">English</button>
     </div>
   </div>
 
@@ -119,33 +131,45 @@
     <!-- Arabic Section -->
     <div id="arabic" class="language-section active arabic-section">
       <h1>سياسة الخصوصية</h1>
-      
-      <h2>1. المقدمة</h2>
-      <p>تطبيق عائلة الحجاج يحترم خصوصيتك. تشرح هذه السياسة كيفية جمعنا واستخدامنا ومعالجتنا لبيانات المستخدمين.</p>
-      
-      <h2>2. البيانات المجمعة</h2>
-      <p>نقوم بجمع المعلومات التالية:</p>
+
+      <h2>١. المقدمة</h2>
+      <p>تطبيق عائلة الحجاج تطبيق خاص بعائلة محددة لبناء وحفظ شجرة العائلة. نحترم خصوصيتك، وتشرح هذه السياسة البيانات التي نجمعها وكيفية استخدامها وحمايتها.</p>
+
+      <h2>٢. البيانات التي نجمعها</h2>
       <ul>
-        <li>معلومات الملف الشخصي (الاسم، البريد الإلكتروني)</li>
-        <li>بيانات الأسرة والعلاقات</li>
-        <li>الصور والملفات المرفوعة</li>
-        <li>سجل الاستخدام والنشاط</li>
+        <li><strong>رقم الجوال</strong>: يُستخدم للتحقق من هويتك وتسجيل الدخول عبر رمز تحقق (OTP)، ولا يتطلب التطبيق بريدًا إلكترونيًا للمستخدمين العاديين.</li>
+        <li><strong>بيانات الملف الشخصي</strong>: الاسم الكامل، المهنة (اختياري)، نبذة تعريفية (اختياري)، سنة الميلاد وسنة الوفاة إن وجدت.</li>
+        <li><strong>بيانات القرابة والعلاقات العائلية</strong>: صلة القرابة، الوالدين، الأزواج/الزوجات، الأبناء، لأغراض بناء شجرة العائلة.</li>
+        <li><strong>الصور</strong>: الصور الشخصية التي يرفعها المستخدمون أو من ينوب عنهم لأفراد العائلة.</li>
+        <li><strong>بيانات الاستخدام</strong>: سجلات تسجيل الدخول وتفاعلك مع الشجرة والمقالات والأخبار داخل التطبيق.</li>
       </ul>
-      
-      <h2>3. كيفية استخدام البيانات</h2>
-      <p>نستخدم بيانتك فقط لـ:</p>
+
+      <h2>٣. بيانات أفراد العائلة القصّر</h2>
+      <p>نظرًا لطبيعة شجرة العائلة، قد يُضيف أحد أفراد العائلة البالغين بيانات (مثل الاسم وسنة الميلاد وصورة) تخص أطفالًا قصّرًا كأعضاء في الشجرة. هذه البيانات تُضاف بواسطة ولي الأمر أو أحد أفراد العائلة البالغين، وليس من الطفل نفسه. لا يُسمح لأي مستخدم دون ١٣ عامًا بإنشاء حساب أو استخدام التطبيق بشكل مباشر.</p>
+
+      <h2>٤. مشاركة البيانات مع أطراف ثالثة</h2>
+      <p>نستخدم مزودي خدمات موثوقين لتشغيل التطبيق:</p>
       <ul>
-        <li>تقديم خدمات التطبيق</li>
-        <li>تحسين تجربة المستخدم</li>
-        <li>الامتثال للمتطلبات القانونية</li>
+        <li><strong>Supabase</strong>: لتخزين قاعدة البيانات والصور.</li>
+        <li><strong>Twilio</strong>: لإرسال رموز التحقق (OTP) عبر الرسائل النصية.</li>
       </ul>
-      
-      <h2>4. الأمان</h2>
-      <p>نستخدم إجراءات أمان قياسية لحماية بيانتك من الوصول غير المصرح به.</p>
-      
-      <h2>5. الاتصال</h2>
-      <p>للأسئلة حول هذه السياسة، يرجى التواصل معنا من خلال صفحة الدعم.</p>
-      
+      <p>لا نبيع بياناتك لأي طرف ثالث لأغراض تسويقية.</p>
+
+      <h2>٥. الاحتفاظ بالبيانات</h2>
+      <p>نحتفظ ببياناتك طالما كان حسابك نشطًا. عند حذف الحساب، تُحذف بياناتك الشخصية خلال ٣٠ يومًا من تاريخ تأكيد الحذف، باستثناء ما يلزم الاحتفاظ به لأغراض قانونية.</p>
+
+      <h2>٦. حقوقك</h2>
+      <p>يحق لك: الوصول إلى بياناتك، وتصحيحها، وطلب حذفها بالكامل (راجع صفحة حذف الحساب)، أو تقييد ظهور بعض بياناتك (مثل رقم الجوال أو المهنة) للأعضاء الآخرين عبر إعدادات الخصوصية داخل التطبيق.</p>
+
+      <h2>٧. الأمان</h2>
+      <p>نستخدم التشفير أثناء النقل وسياسات وصول صارمة على مستوى قاعدة البيانات (Row-Level Security) لحماية بياناتك من الوصول غير المصرح به.</p>
+
+      <h2>٨. التعديلات على هذه السياسة</h2>
+      <p>قد نحدّث هذه السياسة من وقت لآخر. سيتم نشر أي تغييرات جوهرية على هذه الصفحة مع تحديث تاريخ آخر تعديل.</p>
+
+      <h2>٩. التواصل</h2>
+      <p>للأسئلة حول هذه السياسة: support.alhajjaj-family@gmail.com</p>
+
       <div class="footer">
         <p>آخر تحديث: مارس 2026</p>
       </div>
@@ -154,33 +178,45 @@
     <!-- English Section -->
     <div id="english" class="language-section english-section">
       <h1>Privacy Policy</h1>
-      
+
       <h2>1. Introduction</h2>
-      <p>The Al-Hajjaj Family app respects your privacy. This policy explains how we collect, use, and process user data.</p>
-      
-      <h2>2. Data Collection</h2>
-      <p>We collect the following information:</p>
+      <p>Al-Hajjaj Family is a private app built for one specific family to create and preserve a shared family tree. We respect your privacy. This policy explains what data we collect, how we use it, and how we protect it.</p>
+
+      <h2>2. Data We Collect</h2>
       <ul>
-        <li>Profile information (name, email address)</li>
-        <li>Family and relationship data</li>
-        <li>Uploaded photos and files</li>
-        <li>Usage history and activity logs</li>
+        <li><strong>Phone number</strong>: used to verify your identity and log in via a one-time code (OTP). Regular users do not need an email address.</li>
+        <li><strong>Profile information</strong>: full name, occupation (optional), short bio (optional), birth year and, where applicable, year of death.</li>
+        <li><strong>Family relationship data</strong>: kinship links, parents, spouses, and children, used to build the family tree.</li>
+        <li><strong>Photos</strong>: profile photos uploaded by users or on behalf of family members.</li>
+        <li><strong>Usage data</strong>: login records and your interactions with the tree, articles, and news sections within the app.</li>
       </ul>
-      
-      <h2>3. How We Use Your Data</h2>
-      <p>We use your data only for:</p>
+
+      <h2>3. Data About Minor Family Members</h2>
+      <p>Given the nature of a family tree, an adult family member may add information (such as a name, birth year, and photo) for a child who is a minor, as a member of the tree. This information is entered by a parent or an adult family member, not by the child. No one under the age of 13 is permitted to create an account or use the app directly.</p>
+
+      <h2>4. Sharing Data with Third Parties</h2>
+      <p>We use trusted service providers to operate the app:</p>
       <ul>
-        <li>Providing app services</li>
-        <li>Improving user experience</li>
-        <li>Complying with legal requirements</li>
+        <li><strong>Supabase</strong>: for database and photo storage.</li>
+        <li><strong>Twilio</strong>: for sending verification codes (OTP) via SMS.</li>
       </ul>
-      
-      <h2>4. Security</h2>
-      <p>We use standard security procedures to protect your data from unauthorized access.</p>
-      
-      <h2>5. Contact</h2>
-      <p>For questions about this policy, please contact us through the support page.</p>
-      
+      <p>We do not sell your data to any third party for marketing purposes.</p>
+
+      <h2>5. Data Retention</h2>
+      <p>We retain your data for as long as your account remains active. Upon account deletion, your personal data is deleted within 30 days of confirmed deletion, except where retention is required by law.</p>
+
+      <h2>6. Your Rights</h2>
+      <p>You have the right to: access your data, correct it, request full deletion (see the Delete Account page), or restrict the visibility of certain data (such as phone number or occupation) from other members via in-app privacy settings.</p>
+
+      <h2>7. Security</h2>
+      <p>We use encryption in transit and strict database-level access policies (Row-Level Security) to protect your data from unauthorized access.</p>
+
+      <h2>8. Changes to This Policy</h2>
+      <p>We may update this policy from time to time. Material changes will be posted on this page along with an updated revision date.</p>
+
+      <h2>9. Contact</h2>
+      <p>For questions about this policy: support.alhajjaj-family@gmail.com</p>
+
       <div class="footer">
         <p>Last updated: March 2026</p>
       </div>
@@ -188,21 +224,21 @@
   </div>
 
   <script>
-    function showLanguage(lang) {
+    function showLanguage(lang, evt) {
       // Hide all sections
       document.getElementById('arabic').classList.remove('active');
       document.getElementById('english').classList.remove('active');
-      
+
       // Remove active class from buttons
       document.querySelectorAll('.language-tabs button').forEach(btn => {
         btn.classList.remove('active');
       });
-      
+
       // Show selected section
       document.getElementById(lang).classList.add('active');
-      
+
       // Add active class to clicked button
-      event.target.classList.add('active');
+      evt.target.classList.add('active');
     }
   </script>
 </body>

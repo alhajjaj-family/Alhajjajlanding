@@ -4,17 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>حذف الحساب - Delete Account - عائلة الحجاج</title>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --olive: #4A6741;
+      --gold: #C9A45A;
+      --cream: #FAF7F2;
+      --dark: #2C1810;
+      --muted: #7A6E64;
+    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
-      color: #333;
-      background: #f5f5f5;
+      color: var(--dark);
+      background: var(--cream);
       padding: 20px;
     }
     .header {
@@ -22,7 +30,8 @@
       margin-bottom: 30px;
     }
     .header h1 {
-      color: #2c3e50;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       font-size: 28px;
       margin-bottom: 10px;
     }
@@ -34,30 +43,31 @@
     }
     .language-tabs button {
       padding: 10px 20px;
-      border: 2px solid #34495e;
+      border: 2px solid var(--olive);
       background: white;
-      color: #34495e;
+      color: var(--olive);
       border-radius: 4px;
       cursor: pointer;
       font-weight: bold;
       transition: all 0.3s ease;
     }
     .language-tabs button.active {
-      background: #34495e;
+      background: var(--olive);
       color: white;
     }
     .language-tabs button:hover {
       background: #f0f0f0;
     }
     .language-tabs button.active:hover {
-      background: #34495e;
+      background: var(--olive);
     }
     .container {
       max-width: 900px;
       margin: 0 auto;
-      background: white;
+      background: #fff;
       padding: 40px;
       border-radius: 8px;
+      border: 1px solid rgba(74,103,65,0.15);
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .language-section {
@@ -75,12 +85,14 @@
       text-align: left;
     }
     h1 {
-      color: #2c3e50;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       margin-bottom: 30px;
       font-size: 24px;
     }
     h2 {
-      color: #34495e;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       margin-top: 30px;
       margin-bottom: 15px;
       font-size: 18px;
@@ -90,8 +102,8 @@
       font-size: 15px;
     }
     .warning {
-      background: #fff3cd;
-      border: 1px solid #ffc107;
+      background: rgba(201,164,90,0.15);
+      border: 1px solid var(--gold);
       padding: 15px;
       border-radius: 4px;
       margin: 20px 0;
@@ -152,7 +164,7 @@
       padding-top: 20px;
       border-top: 1px solid #eee;
       text-align: center;
-      color: #7f8c8d;
+      color: var(--muted);
       font-size: 12px;
     }
   </style>
@@ -161,8 +173,8 @@
   <div class="header">
     <h1>حذف الحساب | Delete Account</h1>
     <div class="language-tabs">
-      <button class="active" onclick="showLanguage('arabic')">العربية</button>
-      <button onclick="showLanguage('english')">English</button>
+      <button class="active" onclick="showLanguage('arabic', event)">العربية</button>
+      <button onclick="showLanguage('english', event)">English</button>
     </div>
   </div>
 
@@ -170,34 +182,34 @@
     <!-- Arabic Section -->
     <div id="arabic" class="language-section active arabic-section">
       <h1>حذف الحساب</h1>
-      
+
       <h2>طلب حذف الحساب</h2>
       <p>إذا كنت تريد حذف حسابك والبيانات المرتبطة به، يرجى تعبئة النموذج أدناه.</p>
-      
+
       <div class="warning">
         <strong>تنبيه:</strong> حذف حسابك سيؤدي إلى حذف جميع بيانات ملفك الشخصي والمساهمات. هذه العملية لا يمكن استرجاعها.
       </div>
-      
+
       <h2>تقديم طلب الحذف</h2>
       <form class="form-container" id="deleteFormArabic">
         <div class="form-group">
           <label for="name-ar">الاسم</label>
           <input type="text" id="name-ar" name="name" required>
         </div>
-        
+
         <div class="form-group">
           <label for="email-ar">البريد الإلكتروني</label>
           <input type="email" id="email-ar" name="email" required>
         </div>
-        
+
         <button type="submit">تقديم الطلب</button>
-        
+
         <div id="message-ar" class="message"></div>
       </form>
-      
+
       <h2>الدعم</h2>
       <p>إذا واجهت مشاكل في حذف حسابك، يرجى التواصل معنا من خلال صفحة الدعم.</p>
-      
+
       <div class="footer">
         <p>آخر تحديث: مارس 2026</p>
       </div>
@@ -206,34 +218,34 @@
     <!-- English Section -->
     <div id="english" class="language-section english-section">
       <h1>Delete Account</h1>
-      
+
       <h2>Account Deletion Request</h2>
       <p>If you want to delete your account and associated data, please fill out the form below.</p>
-      
+
       <div class="warning">
         <strong>Warning:</strong> Deleting your account will remove all your profile data and contributions. This action cannot be undone.
       </div>
-      
+
       <h2>Submit Deletion Request</h2>
       <form class="form-container" id="deleteFormEnglish">
         <div class="form-group">
           <label for="name-en">Name</label>
           <input type="text" id="name-en" name="name" required>
         </div>
-        
+
         <div class="form-group">
           <label for="email-en">Email Address</label>
           <input type="email" id="email-en" name="email" required>
         </div>
-        
+
         <button type="submit">Submit Request</button>
-        
+
         <div id="message-en" class="message"></div>
       </form>
-      
+
       <h2>Support</h2>
       <p>If you experience issues deleting your account, please contact us through the support page.</p>
-      
+
       <div class="footer">
         <p>Last updated: March 2026</p>
       </div>
@@ -241,21 +253,21 @@
   </div>
 
   <script>
-    function showLanguage(lang) {
+    function showLanguage(lang, evt) {
       // Hide all sections
       document.getElementById('arabic').classList.remove('active');
       document.getElementById('english').classList.remove('active');
-      
+
       // Remove active class from buttons
       document.querySelectorAll('.language-tabs button').forEach(btn => {
         btn.classList.remove('active');
       });
-      
+
       // Show selected section
       document.getElementById(lang).classList.add('active');
-      
+
       // Add active class to clicked button
-      event.target.classList.add('active');
+      evt.target.classList.add('active');
     }
 
     // Arabic form
@@ -274,17 +286,17 @@
       const name = document.getElementById(nameId).value;
       const email = document.getElementById(emailId).value;
       const messageEl = document.getElementById(messageId);
-      
+
       try {
         const response = await fetch('/delete-account', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email })
         });
-        
+
         const data = await response.json();
         messageEl.style.display = 'block';
-        
+
         if (response.ok) {
           messageEl.style.background = '#d4edda';
           messageEl.style.border = '1px solid #c3e6cb';

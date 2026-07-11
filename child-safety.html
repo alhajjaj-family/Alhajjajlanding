@@ -4,17 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>سلامة الأطفال - Child Safety - عائلة الحجاج</title>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --olive: #4A6741;
+      --gold: #C9A45A;
+      --cream: #FAF7F2;
+      --dark: #2C1810;
+      --muted: #7A6E64;
+    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
-      color: #333;
-      background: #f5f5f5;
+      color: var(--dark);
+      background: var(--cream);
       padding: 20px;
     }
     .header {
@@ -22,7 +30,8 @@
       margin-bottom: 30px;
     }
     .header h1 {
-      color: #2c3e50;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       font-size: 28px;
       margin-bottom: 10px;
     }
@@ -34,30 +43,31 @@
     }
     .language-tabs button {
       padding: 10px 20px;
-      border: 2px solid #34495e;
+      border: 2px solid var(--olive);
       background: white;
-      color: #34495e;
+      color: var(--olive);
       border-radius: 4px;
       cursor: pointer;
       font-weight: bold;
       transition: all 0.3s ease;
     }
     .language-tabs button.active {
-      background: #34495e;
+      background: var(--olive);
       color: white;
     }
     .language-tabs button:hover {
       background: #f0f0f0;
     }
     .language-tabs button.active:hover {
-      background: #34495e;
+      background: var(--olive);
     }
     .container {
       max-width: 900px;
       margin: 0 auto;
-      background: white;
+      background: #fff;
       padding: 40px;
       border-radius: 8px;
+      border: 1px solid rgba(74,103,65,0.15);
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .language-section {
@@ -75,12 +85,14 @@
       text-align: left;
     }
     h1 {
-      color: #2c3e50;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       margin-bottom: 30px;
       font-size: 24px;
     }
     h2 {
-      color: #34495e;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       margin-top: 30px;
       margin-bottom: 15px;
       font-size: 18px;
@@ -112,7 +124,7 @@
       padding-top: 20px;
       border-top: 1px solid #eee;
       text-align: center;
-      color: #7f8c8d;
+      color: var(--muted);
       font-size: 12px;
     }
   </style>
@@ -121,8 +133,8 @@
   <div class="header">
     <h1>سلامة الأطفال | Child Safety</h1>
     <div class="language-tabs">
-      <button class="active" onclick="showLanguage('arabic')">العربية</button>
-      <button onclick="showLanguage('english')">English</button>
+      <button class="active" onclick="showLanguage('arabic', event)">العربية</button>
+      <button onclick="showLanguage('english', event)">English</button>
     </div>
   </div>
 
@@ -130,28 +142,31 @@
     <!-- Arabic Section -->
     <div id="arabic" class="language-section active arabic-section">
       <h1>بيان معايير سلامة الأطفال</h1>
-      
+
       <h2>تعريف السياسة</h2>
-      <p>التطبيق غير موجه للأطفال ولا يستهدف المستخدمين دون سن 13 عامًا.</p>
-      
+      <p>التطبيق غير موجه للأطفال ولا يجوز لمن هم دون ١٣ عامًا إنشاء حساب أو استخدام التطبيق مباشرة.</p>
+
+      <h2>بيانات القُصّر داخل شجرة العائلة</h2>
+      <p>بما أن التطبيق يبني شجرة عائلة كاملة، فقد تظهر بيانات أطفال قصّر (مثل الاسم، سنة الميلاد، أو صورة) كأعضاء في الشجرة. هذه البيانات يُدخلها ولي الأمر أو أحد أفراد العائلة البالغين نيابةً عن الطفل، وليس الطفل نفسه، وتُستخدم فقط لغرض توثيق شجرة العائلة وتُعرض حصريًا لأفراد العائلة المصرح لهم.</p>
+
       <h2>محتوى محظور</h2>
-      <p>يُحظر تمامًا نشر أو مشاركة أي محتوى يتضمن استغلالًا أو إساءة للأطفال.</p>
-      
+      <p>يُحظر تمامًا نشر أو مشاركة أي محتوى يتضمن استغلالًا أو إساءة للأطفال بأي شكل من الأشكال.</p>
+
       <h2>إجراءات الإنفاذ</h2>
-      <p>أي محتوى ينتهك هذه السياسة سيتم إزالته فورًا مع اتخاذ الإجراءات المناسبة بحق الحساب المخالف.</p>
-      
+      <p>أي محتوى ينتهك هذه السياسة سيُزال فورًا عند اكتشافه أو الإبلاغ عنه، مع اتخاذ الإجراء المناسب بحق الحساب المخالف، بما في ذلك تعليق الحساب أو حذفه.</p>
+
       <h2>آليات الإبلاغ</h2>
-      <p>يوفر التطبيق آلية للإبلاغ عن أي محتوى غير مناسب أو مخالف للسياسات.</p>
-      
+      <p>يمكنك الإبلاغ عن أي محتوى غير مناسب من خلال ميزة الإبلاغ عن المشاكل المتوفرة داخل التطبيق، أو عبر التواصل المباشر على بريدنا الإلكتروني أدناه.</p>
+
       <h2>التعاون مع الجهات المختصة</h2>
-      <p>سيتم التعاون مع الجهات المختصة عند الضرورة في حال وجود أي انتهاك يتعلق بسلامة الأطفال.</p>
-      
-      <h2>التواصل والدعم</h2>
-      <p>في حال وجود أي بلاغ أو استفسار متعلق بسلامة المستخدمين يمكن التواصل مع إدارة التطبيق عبر البريد الإلكتروني:</p>
+      <p>سنتعاون مع الجهات المختصة في المملكة العربية السعودية عند الضرورة في حال وجود أي انتهاك يتعلق بسلامة الأطفال.</p>
+
+      <h2>التواصل</h2>
+      <p>للإبلاغ عن أي مخاوف تتعلق بسلامة الأطفال:</p>
       <div class="contact-info arabic">
         <p><strong>البريد الإلكتروني:</strong> support.alhajjaj-family@gmail.com</p>
       </div>
-      
+
       <div class="footer">
         <p>آخر تحديث: مارس 2026</p>
       </div>
@@ -160,28 +175,31 @@
     <!-- English Section -->
     <div id="english" class="language-section english-section">
       <h1>Child Safety Statement</h1>
-      
+
       <h2>Policy Definition</h2>
-      <p>The app is not directed at children and does not target users under 13 years of age.</p>
-      
+      <p>The app is not directed at children. No one under the age of 13 may create an account or use the app directly.</p>
+
+      <h2>Minors' Data Within the Family Tree</h2>
+      <p>Because the app builds a complete family tree, information about minor children (such as name, birth year, or photo) may appear as tree members. This information is entered by a parent or an adult family member on the child's behalf, not by the child, and is used solely to document the family tree, visible only to authorized family members.</p>
+
       <h2>Prohibited Content</h2>
-      <p>Publishing or sharing any content that exploits or abuses children is strictly prohibited.</p>
-      
+      <p>Publishing or sharing any content that exploits or abuses children in any form is strictly prohibited.</p>
+
       <h2>Enforcement Measures</h2>
-      <p>Any content that violates this policy will be removed immediately, and appropriate action will be taken against the violating account.</p>
-      
+      <p>Any content violating this policy will be removed immediately upon discovery or report, with appropriate action taken against the violating account, including suspension or deletion.</p>
+
       <h2>Reporting Mechanisms</h2>
-      <p>The app provides a mechanism to report any inappropriate or policy-violating content.</p>
-      
+      <p>You can report any inappropriate content using the issue-reporting feature available within the app, or by contacting us directly at the email below.</p>
+
       <h2>Cooperation with Authorities</h2>
-      <p>We will cooperate with relevant authorities when necessary in case of any violations related to child safety.</p>
-      
-      <h2>Contact and Support</h2>
-      <p>If you have any reports or questions related to user safety, you can contact the app management via email:</p>
+      <p>We will cooperate with relevant authorities in the Kingdom of Saudi Arabia when necessary in the event of any child-safety-related violation.</p>
+
+      <h2>Contact</h2>
+      <p>To report any child-safety concerns:</p>
       <div class="contact-info">
         <p><strong>Email:</strong> support.alhajjaj-family@gmail.com</p>
       </div>
-      
+
       <div class="footer">
         <p>Last updated: March 2026</p>
       </div>
@@ -189,21 +207,21 @@
   </div>
 
   <script>
-    function showLanguage(lang) {
+    function showLanguage(lang, evt) {
       // Hide all sections
       document.getElementById('arabic').classList.remove('active');
       document.getElementById('english').classList.remove('active');
-      
+
       // Remove active class from buttons
       document.querySelectorAll('.language-tabs button').forEach(btn => {
         btn.classList.remove('active');
       });
-      
+
       // Show selected section
       document.getElementById(lang).classList.add('active');
-      
+
       // Add active class to clicked button
-      event.target.classList.add('active');
+      evt.target.classList.add('active');
     }
   </script>
 </body>

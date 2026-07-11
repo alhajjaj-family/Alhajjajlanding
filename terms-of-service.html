@@ -4,17 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>شروط الخدمة - Terms of Service - عائلة الحجاج</title>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --olive: #4A6741;
+      --gold: #C9A45A;
+      --cream: #FAF7F2;
+      --dark: #2C1810;
+      --muted: #7A6E64;
+    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
-      color: #333;
-      background: #f5f5f5;
+      color: var(--dark);
+      background: var(--cream);
       padding: 20px;
     }
     .header {
@@ -22,7 +30,8 @@
       margin-bottom: 30px;
     }
     .header h1 {
-      color: #2c3e50;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       font-size: 28px;
       margin-bottom: 10px;
     }
@@ -34,30 +43,31 @@
     }
     .language-tabs button {
       padding: 10px 20px;
-      border: 2px solid #34495e;
+      border: 2px solid var(--olive);
       background: white;
-      color: #34495e;
+      color: var(--olive);
       border-radius: 4px;
       cursor: pointer;
       font-weight: bold;
       transition: all 0.3s ease;
     }
     .language-tabs button.active {
-      background: #34495e;
+      background: var(--olive);
       color: white;
     }
     .language-tabs button:hover {
       background: #f0f0f0;
     }
     .language-tabs button.active:hover {
-      background: #34495e;
+      background: var(--olive);
     }
     .container {
       max-width: 900px;
       margin: 0 auto;
-      background: white;
+      background: #fff;
       padding: 40px;
       border-radius: 8px;
+      border: 1px solid rgba(74,103,65,0.15);
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .language-section {
@@ -75,12 +85,14 @@
       text-align: left;
     }
     h1 {
-      color: #2c3e50;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       margin-bottom: 30px;
       font-size: 24px;
     }
     h2 {
-      color: #34495e;
+      font-family: 'El Messiri', serif;
+      color: var(--olive);
       margin-top: 30px;
       margin-bottom: 15px;
       font-size: 18px;
@@ -101,7 +113,7 @@
       padding-top: 20px;
       border-top: 1px solid #eee;
       text-align: center;
-      color: #7f8c8d;
+      color: var(--muted);
       font-size: 12px;
     }
   </style>
@@ -110,8 +122,8 @@
   <div class="header">
     <h1>شروط الخدمة | Terms of Service</h1>
     <div class="language-tabs">
-      <button class="active" onclick="showLanguage('arabic')">العربية</button>
-      <button onclick="showLanguage('english')">English</button>
+      <button class="active" onclick="showLanguage('arabic', event)">العربية</button>
+      <button onclick="showLanguage('english', event)">English</button>
     </div>
   </div>
 
@@ -119,28 +131,44 @@
     <!-- Arabic Section -->
     <div id="arabic" class="language-section active arabic-section">
       <h1>شروط الخدمة</h1>
-      
-      <h2>1. قبول الشروط</h2>
-      <p>باستخدام تطبيق عائلة الحجاج، فإنك توافق على الالتزام بهذه الشروط وجميع القوانين والأنظمة المعمول بها.</p>
-      
-      <h2>2. الاستخدام المقبول</h2>
+
+      <h2>١. قبول الشروط</h2>
+      <p>باستخدامك تطبيق عائلة الحجاج، فإنك توافق على الالتزام بهذه الشروط وبجميع الأنظمة المعمول بها في المملكة العربية السعودية.</p>
+
+      <h2>٢. الأهلية</h2>
+      <p>هذا التطبيق مخصص لأفراد عائلة الحجاج المحددين، ولا يجوز لمن هم دون ١٣ عامًا إنشاء حساب أو استخدام التطبيق مباشرة. يجوز لأولياء الأمور إضافة بيانات أبنائهم القصّر كأعضاء في الشجرة.</p>
+
+      <h2>٣. حسابك</h2>
+      <p>يتم التحقق من هويتك عبر رقم جوالك. أنت مسؤول عن الحفاظ على أمان جهازك وعدم مشاركة رمز التحقق مع أي شخص آخر.</p>
+
+      <h2>٤. الاستخدام المقبول</h2>
       <p>يتعهد المستخدم بـ:</p>
       <ul>
-        <li>عدم استخدام التطبيق لأغراض غير قانونية</li>
-        <li>احترام خصوصية المستخدمين الآخرين</li>
-        <li>عدم نشر محتوى مسيء أو مؤذي</li>
-        <li>عدم محاولة اختراق أنظمة التطبيق</li>
+        <li>عدم استخدام التطبيق لأي غرض غير قانوني</li>
+        <li>احترام خصوصية أفراد العائلة الآخرين</li>
+        <li>عدم نشر محتوى مسيء أو غير لائق أو مخالف للقيم العائلية</li>
+        <li>عدم محاولة الوصول غير المصرح به لحسابات أو بيانات أفراد آخرين</li>
+        <li>عدم انتحال شخصية فرد آخر من العائلة عند التسجيل</li>
       </ul>
-      
-      <h2>3. مسؤوليات المستخدم</h2>
-      <p>أنت مسؤول عن الحفاظ على سرية بيانات حسابك وجميع الأنشطة التي تتم عبر حسابك.</p>
-      
-      <h2>4. المسؤولية المحدودة</h2>
-      <p>لا نتحمل مسؤولية عن أي أضرار غير مباشرة أو خسائر ناتجة عن استخدام التطبيق.</p>
-      
-      <h2>5. التعديلات</h2>
-      <p>نحتفظ بالحق في تعديل هذه الشروط في أي وقت. سيتم إخطارك بأي تغييرات جوهرية.</p>
-      
+
+      <h2>٥. المحتوى الذي ترفعه</h2>
+      <p>عند رفعك صورة أو معلومة عن فرد من العائلة (بما في ذلك أفراد آخرون غير مسجلين في التطبيق)، فإنك تقر بأن لديك الحق أو الإذن الكافي لمشاركة هذا المحتوى، وتمنح التطبيق ترخيصًا غير حصري لعرض هذا المحتوى داخل التطبيق لأفراد العائلة المصرح لهم فقط.</p>
+
+      <h2>٦. دور المسؤول (الأدمن)</h2>
+      <p>يحتفظ مسؤولو التطبيق بصلاحية مراجعة طلبات الانضمام، وربط أرقام الجوال بأفراد الشجرة، وإزالة أي محتوى مخالف لهذه الشروط، أو تعليق أي حساب يُساء استخدامه.</p>
+
+      <h2>٧. حذف الحساب</h2>
+      <p>يمكنك طلب حذف حسابك وبياناتك في أي وقت من خلال صفحة حذف الحساب داخل التطبيق. راجع سياسة الخصوصية لمعرفة المدة الزمنية للحذف.</p>
+
+      <h2>٨. حدود المسؤولية</h2>
+      <p>نبذل جهدنا للحفاظ على دقة بيانات الشجرة، إلا أننا لا نتحمل مسؤولية دقة المعلومات التي يُدخلها المستخدمون أو عن أي نزاع عائلي متعلق بمحتوى الشجرة. لا نتحمل مسؤولية عن أي أضرار غير مباشرة ناتجة عن استخدام التطبيق.</p>
+
+      <h2>٩. القانون الحاكم</h2>
+      <p>تخضع هذه الشروط وتُفسَّر وفقًا لأنظمة المملكة العربية السعودية.</p>
+
+      <h2>١٠. التعديلات</h2>
+      <p>نحتفظ بالحق في تعديل هذه الشروط في أي وقت. سيتم إخطار المستخدمين بأي تغييرات جوهرية عبر التطبيق.</p>
+
       <div class="footer">
         <p>آخر تحديث: مارس 2026</p>
       </div>
@@ -149,28 +177,44 @@
     <!-- English Section -->
     <div id="english" class="language-section english-section">
       <h1>Terms of Service</h1>
-      
+
       <h2>1. Acceptance of Terms</h2>
-      <p>By using the Al-Hajjaj Family app, you agree to comply with these terms and all applicable laws and regulations.</p>
-      
-      <h2>2. Acceptable Use</h2>
-      <p>Users commit to:</p>
+      <p>By using the Al-Hajjaj Family app, you agree to comply with these terms and all applicable regulations in the Kingdom of Saudi Arabia.</p>
+
+      <h2>2. Eligibility</h2>
+      <p>This app is intended for members of the specific Al-Hajjaj family. No one under the age of 13 may create an account or use the app directly. Parents/guardians may add their minor children's information as members of the tree.</p>
+
+      <h2>3. Your Account</h2>
+      <p>Your identity is verified via your phone number. You are responsible for keeping your device secure and not sharing your verification code with anyone else.</p>
+
+      <h2>4. Acceptable Use</h2>
+      <p>Users agree to:</p>
       <ul>
-        <li>Not using the app for illegal purposes</li>
-        <li>Respecting the privacy of other users</li>
-        <li>Not posting abusive or harmful content</li>
-        <li>Not attempting to breach app systems</li>
+        <li>Not use the app for any unlawful purpose</li>
+        <li>Respect the privacy of other family members</li>
+        <li>Not post offensive, inappropriate, or family-value-violating content</li>
+        <li>Not attempt unauthorized access to other members' accounts or data</li>
+        <li>Not impersonate another family member when registering</li>
       </ul>
-      
-      <h2>3. User Responsibilities</h2>
-      <p>You are responsible for maintaining the confidentiality of your account data and all activities conducted through your account.</p>
-      
-      <h2>4. Limited Liability</h2>
-      <p>We are not responsible for any indirect damages or losses resulting from the use of the app.</p>
-      
-      <h2>5. Modifications</h2>
-      <p>We reserve the right to modify these terms at any time. You will be notified of any material changes.</p>
-      
+
+      <h2>5. Content You Upload</h2>
+      <p>When you upload a photo or information about a family member (including those not yet registered in the app), you confirm that you have sufficient right or permission to share that content, and you grant the app a non-exclusive license to display that content within the app to authorized family members only.</p>
+
+      <h2>6. Admin Role</h2>
+      <p>App administrators retain the authority to review join requests, link phone numbers to tree members, remove content that violates these terms, or suspend any account that is misused.</p>
+
+      <h2>7. Account Deletion</h2>
+      <p>You may request deletion of your account and data at any time via the Delete Account page within the app. See the Privacy Policy for the deletion timeframe.</p>
+
+      <h2>8. Limitation of Liability</h2>
+      <p>We make reasonable efforts to keep tree data accurate, but we are not responsible for the accuracy of information entered by users, or for any family disputes related to tree content. We are not liable for indirect damages arising from use of the app.</p>
+
+      <h2>9. Governing Law</h2>
+      <p>These terms are governed by and construed in accordance with the laws of the Kingdom of Saudi Arabia.</p>
+
+      <h2>10. Modifications</h2>
+      <p>We reserve the right to modify these terms at any time. Users will be notified of material changes via the app.</p>
+
       <div class="footer">
         <p>Last updated: March 2026</p>
       </div>
@@ -178,21 +222,21 @@
   </div>
 
   <script>
-    function showLanguage(lang) {
+    function showLanguage(lang, evt) {
       // Hide all sections
       document.getElementById('arabic').classList.remove('active');
       document.getElementById('english').classList.remove('active');
-      
+
       // Remove active class from buttons
       document.querySelectorAll('.language-tabs button').forEach(btn => {
         btn.classList.remove('active');
       });
-      
+
       // Show selected section
       document.getElementById(lang).classList.add('active');
-      
+
       // Add active class to clicked button
-      event.target.classList.add('active');
+      evt.target.classList.add('active');
     }
   </script>
 </body>
