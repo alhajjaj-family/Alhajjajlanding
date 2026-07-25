@@ -1,6 +1,8 @@
 {
   "routes": [
     { "src": "/", "dest": "/index.html" },
+    { "src": "/p/([^/]+)", "dest": "/deeplink.html" },
+    { "src": "/s/([^/]+)", "dest": "/deeplink.html" },
     { "src": "/privacy-policy", "dest": "/privacy-policy.html" },
     { "src": "/child-safety", "dest": "/child-safety.html" },
     { "src": "/delete-account", "dest": "/delete-account.html" },
