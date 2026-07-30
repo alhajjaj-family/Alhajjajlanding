@@ -1,162 +1,192 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <script>
-  (function() {
-    var APP_STORE_URL = 'https://apps.apple.com/sa/app/%D8%B9%D8%A7%D8%A6%D9%84%D8%A9-%D8%A7%D9%84%D8%AD%D8%AC%D8%A7%D8%AC/id6760150192';
-    var GOOGLE_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.alhajjajfamily.app';
-    var ua = navigator.userAgent || navigator.vendor || window.opera || '';
-    var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-    var isAndroid = /android/i.test(ua);
-    if (isIOS) { window.location.replace(APP_STORE_URL); return; }
-    if (isAndroid) { window.location.replace(GOOGLE_PLAY_URL); return; }
-    // Desktop / other: fall through, show the existing landing page content.
-  })();
-  </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>عائلة الحجاج</title>
+<meta charset="utf-8">
+<script>
+/* توجيه فوري للمتجر على الجوالات — كل جهاز لمتجره.
+   للتخطي والاطلاع على الصفحة: أضف ?web=1 إلى الرابط. */
+(function(){
+  try{
+    var q = location.search;
+    if (q.indexOf('web=1') > -1) return;                 // تخطٍّ يدوي
+    if (sessionStorage.getItem('noRedirect')) return;     // رجع من المتجر — لا نعيد القذف
+    var ua = navigator.userAgent || '';
+    var isAndroid = /Android/.test(ua);
+    var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (!isAndroid && !isIOS) return;                     // حاسب: اعرض الصفحة
+    sessionStorage.setItem('noRedirect','1');
+    location.replace(isAndroid
+      ? 'https://play.google.com/store/apps/details?id=com.alhajjajfamily.app'
+      : 'https://apps.apple.com/app/id6760150192');
+  }catch(e){}
+})();
+</script>
 
-  <!-- Open Graph — for WhatsApp, iMessage, Facebook, etc. -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="عائلة الحجاج">
-  <meta property="og:title" content="عائلة الحجاج — شجرة العائلة">
-  <meta property="og:description" content="تطبيق خاص لأفراد عائلة الحجاج — شجرة العائلة، صور، أخبار، ومقالات في مكان واحد.">
-  <meta property="og:url" content="https://alhajjaj-family.com">
-  <meta property="og:image" content="https://alhajjaj-family.com/og-preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="شعار عائلة الحجاج">
-  <meta property="og:locale" content="ar_SA">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عائلة الحجاج</title>
+<meta name="description" content="تطبيق خاص بأفراد عائلة الحجاج من ذرية الجد علي بن حجاج الحجاج.">
+<meta name="theme-color" content="#FAF7F2">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="عائلة الحجاج — شجرة العائلة">
-  <meta name="twitter:description" content="تطبيق خاص لأفراد عائلة الحجاج — شجرة العائلة، صور، أخبار، ومقالات في مكان واحد.">
-  <meta name="twitter:image" content="https://alhajjaj-family.com/og-preview.png">
-  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --olive: #4A6741;
-      --gold: #C9A45A;
-      --cream: #FAF7F2;
-      --dark: #2C1810;
-      --muted: #7A6E64;
-      --card: #fff;
-      --line: rgba(74, 103, 65, 0.15);
-      --disabled: #e3e3e3;
-      --disabled-text: #8a8a8a;
-    }
+<meta property="og:title" content="عائلة الحجاج">
+<meta property="og:description" content="تطبيق خاص بأفراد عائلة الحجاج.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alhajjaj-family.com">
 
-    * { box-sizing: border-box; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 
-    body {
-      margin: 0;
-      font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-    }
+<style>
+:root{
+  --olive:#4A6741; --olive-deep:#33482D; --gold:#C9A45A;
+  --cream:#FAF7F2; --ink:#2C1810; --muted:#7A6E64; --line:#E5DDD0;
+  --display:'El Messiri',serif; --body:'IBM Plex Sans Arabic',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
 
-    .wrap {
-      max-width: 420px;
-      margin: 0 auto;
-      padding: 40px 20px 28px;
-      text-align: center;
-    }
+.hero{padding:84px 0 66px;text-align:center}
+.logo{margin:0 auto;line-height:0}
+.logo img{width:min(300px,72vw);height:auto;display:block;margin:0 auto}
+.tagline{font-size:clamp(17px,2.3vw,19px);color:var(--muted);margin:16px auto 0;max-width:36ch}
+.scope{display:inline-block;margin-top:22px;padding:8px 18px;border-radius:999px;
+  border:1px solid var(--gold);color:var(--gold);font-size:14.5px;font-weight:500}
 
-    h1 {
-      margin: 0 0 10px;
-      font-family: 'El Messiri', serif;
-      font-size: 34px;
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--olive);
-    }
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:14px;
+  text-decoration:none;font-weight:600;font-size:16px;border:1.5px solid var(--olive);
+  color:var(--olive);transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--olive);color:#fff}
+.btn.primary:hover{background:var(--olive-deep)}
+.btn svg{width:19px;height:19px;fill:currentColor}
 
-    .sub {
-      margin: 0 0 28px;
-      color: var(--muted);
-      font-size: 18px;
-    }
+.rule{height:1px;background:var(--line);margin:0 24px}
+section{padding:70px 0}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(25px,3.4vw,30px);
+  color:var(--olive-deep);margin-bottom:34px;text-align:center}
 
-    .tree-card {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 26px 20px;
-      margin-bottom: 18px;
-    }
+.grid{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);
+  border-radius:16px;overflow:hidden}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+.cell{background:var(--cream);padding:26px 24px}
+.cell h3{font-family:var(--display);font-weight:600;font-size:19px;color:var(--olive-deep);margin-bottom:6px}
+.cell p{font-size:15.5px;color:var(--muted);line-height:1.7}
 
-    .tree-icon {
-      width: 72px;
-      height: 72px;
-      margin: 0 auto 14px;
-      border-radius: 20px;
-      background: rgba(74, 103, 65, 0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 34px;
-      color: var(--olive);
-    }
+.support{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px 28px;text-align:center}
+.support h2{margin-bottom:8px}
+.support p{color:var(--muted);margin-bottom:20px}
+.wa{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:13px;
+  text-decoration:none;background:#25D366;color:#fff;font-weight:600;font-size:16px}
+.wa svg{width:19px;height:19px;fill:#fff}
+.support small{display:block;margin-top:14px;color:var(--muted);font-size:14px}
 
-    .tree-title {
-      font-family: 'El Messiri', serif;
-      font-size: 26px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--olive);
-    }
+footer{padding:44px 0 58px;text-align:center;border-top:1px solid var(--line)}
+.links{display:flex;gap:8px 22px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.links a{color:var(--muted);text-decoration:none;font-size:15px}
+.links a:hover{color:var(--olive)}
+.copy{color:var(--muted);font-size:13.5px}
 
-    .tree-desc {
-      font-size: 16px;
-      color: var(--muted);
-    }
-
-    .btn {
-      width: 100%;
-      border: 0;
-      border-radius: 18px;
-      padding: 18px 16px;
-      background: var(--disabled);
-      color: var(--disabled-text);
-      font-size: 18px;
-      font-weight: 700;
-      margin-top: 12px;
-      cursor: not-allowed;
-    }
-
-    .soon {
-      display: block;
-      margin-top: 4px;
-      font-size: 13px;
-      font-weight: 500;
-    }
-  </style>
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
 </head>
 <body>
+
+<header class="hero">
   <div class="wrap">
-    <h1>عائلة الحجاج</h1>
-    <p class="sub">الشجرة متاحة بصيغة PDF</p>
+    <h1 class="logo"><img src="/logo-full.png" alt="عائلة الحجاج" width="582" height="374"></h1>
+    <p class="tagline">تطبيق خاص بأفراد العائلة، يوثّق شجرتها ويصل أرحامها.</p>
+    <span class="scope">مخصص لذرية الجد علي بن حجاج الحجاج</span>
 
-    <a class="tree-card" href="https://drive.google.com/file/d/1Fq8AudwxOXrLJuhbxdB3SrNNELw0yjk8/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
-      <div class="tree-icon">🌳</div>
-      <div class="tree-title">شجرة العائلة</div>
-      <div class="tree-desc">اضغط لفتح ملف الشجرة PDF</div>
-    </a>
-
-    <button class="btn" disabled>
-      App Store
-      <span class="soon">قريبًا</span>
-    </button>
-
-    <button class="btn" disabled>
-      Google Play
-      <span class="soon">قريبًا</span>
-    </button>
+    <div class="cta">
+      <a class="btn primary" id="ios" href="https://apps.apple.com/app/id6760150192">
+        <svg viewBox="0 0 24 24"><path d="M17.05 12.5c0-2.2 1.8-3.25 1.88-3.3-1.02-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.87-.76-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.2 1.1-.04 1.52-.71 2.85-.71s1.7.71 2.87.69c1.19-.02 1.94-1.08 2.66-2.14.84-1.22 1.19-2.4 1.2-2.46-.03-.01-2.3-.88-2.3-3.54zM14.9 5.3c.6-.74 1.01-1.76.9-2.78-.87.04-1.93.58-2.56 1.31-.56.65-1.06 1.7-.93 2.7.97.08 1.97-.5 2.59-1.23z"/></svg>
+        App Store
+      </a>
+      <a class="btn" id="android" href="https://play.google.com/store/apps/details?id=com.alhajjajfamily.app">
+        <svg viewBox="0 0 24 24"><path d="M3.6 2.4c-.3.3-.5.8-.5 1.4v16.4c0 .6.2 1.1.5 1.4l.1.1 9.2-9.2v-.2L3.6 2.4zM16.2 15.3l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.7 2zM15.9 15.6L12.7 12.4 3.5 21.6c.3.4.9.4 1.5.1l10.9-6.1M15.9 8.4L5 2.3c-.6-.3-1.2-.3-1.5.1l9.2 9.2 3.2-3.2z"/></svg>
+        Google Play
+      </a>
+    </div>
   </div>
+</header>
+
+<div class="rule"></div>
+
+<section>
+  <div class="wrap">
+    <h2>ماذا يقدّم التطبيق؟</h2>
+    <div class="grid">
+      <div class="cell">
+        <h3>الشجرة كاملة</h3>
+        <p>تصفّح شجرة العائلة وكبّرها، وشجرة خاصة لكل فرع من فروعها.</p>
+      </div>
+      <div class="cell">
+        <h3>صلة القرابة تلقائياً</h3>
+        <p>افتح صفحة أي فرد فيخبرك التطبيق بصلتك به: عمك، ابن خالك، خال أبيك…</p>
+      </div>
+      <div class="cell">
+        <h3>قرابة الرضاع</h3>
+        <p>موثّقة وفق أحكام الرضاع المحرِّم، بمراجعة شرعية معتمدة.</p>
+      </div>
+      <div class="cell">
+        <h3>الوثائق والتراثيات</h3>
+        <p>صور الوثائق القديمة والمخطوطات، محفوظة لمن بعدنا.</p>
+      </div>
+      <div class="cell">
+        <h3>تاريخ العائلة</h3>
+        <p>مقاطع صوتية ومرئية تحفظ ذاكرة العائلة بأصوات أهلها.</p>
+      </div>
+      <div class="cell">
+        <h3>الأخبار والخدمات</h3>
+        <p>أخبار العائلة ومقالاتها، وسوق داخلي لخدمات أفرادها.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section>
+  <div class="wrap">
+    <div class="support">
+      <h2>الدعم الفني</h2>
+      <p>لأي مشكلة أو استفسار — تواصل معنا مباشرة.</p>
+      <a class="wa" href="https://wa.me/966551008061?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D9%86%D8%AF%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20%D8%B9%D8%A7%D8%A6%D9%84%D8%A9%20%D8%A7%D9%84%D8%AD%D8%AC%D8%A7%D8%AC">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.8 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5s-1.2-1.6-1.2-3 .8-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.2 1.5 1.9 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.9-1c.2-.2.3-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+        واتساب الدعم
+      </a>
+      <small>٠٥٥١٠٠٨٠٦١</small>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <nav class="links">
+      <a href="/privacy-policy">سياسة الخصوصية</a>
+      <a href="/terms-of-service">شروط الاستخدام</a>
+      <a href="/child-safety">سلامة الأطفال</a>
+      <a href="/delete-account">حذف الحساب</a>
+      <a href="/support">الدعم</a>
+    </nav>
+    <p class="copy">© ٢٠٢٦ عائلة الحجاج</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ua = navigator.userAgent || '';
+  var isAndroid = /Android/.test(ua);
+  if(!isAndroid) return;
+  var ios = document.getElementById('ios'), and = document.getElementById('android');
+  and.classList.add('primary'); ios.classList.remove('primary');
+  and.parentNode.insertBefore(and, ios);
+})();
+</script>
 </body>
 </html>
